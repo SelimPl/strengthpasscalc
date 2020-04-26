@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siła hasła</title>
+    <style>
+        * ::before,
+        *::after,
+        * {
+            box-sizing: border-box;
+
+        }
+
+        body {
+            background-color: hsl(2, 44%, 30%);
+            color: hsl(2, 44%, 90%);
+            text-align: center;
+        }
+
+        .strenght-meter {
+            position: relative;
+            height: 2rem;
+            width: 90%;
+            border: 2px solid hsl(2, 44%, 50%);
+            border-radius: 1rem;
+            margin: 0 auto;
+            overflow: hidden;
+
+        }
+        .strenght-meter::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            height: 100%;
+            width:calc(1% * var(--strength, 0));
+            background-color: hsl(2, 44%, 70%);
+
+            transition:  width 200ms;
+        }
+
+        .password-input {
+            margin-top: 1rem;
+            width: 85%;
+            padding: .30rem .80rem;
+            background-color:  hsl(352, 88%, 46%);
+            color: white;
+            border: 1px solid hsl(2, 44%, 70%);
+            outline: none;
+            text-align: center;
+            border-radius: .2rem;
+
+        }
+
+        .password-input:focus {
+            border-color:hsl(2, 44%, 90%);
+
+        }
+
+        .reasons > * {
+            margin-top: .5rem;
+            color: hsl(2, 44%, 70%);;
+
+        }
+        
+    </style>
+    <script src="app.js" defer></script>
+</head>
+
+<body>
+    <h1>Poziom siły hasła</h1>
+    <div class="strenght-meter" id="strenght-meter"></div>
+    <input type="text" class="password-input" id="password-input" value="hasło..." autofocus aria-labelledby="password">
+    <div id="reasons" class="reasons"></div>
+ 
+</body>
+
+</html>
